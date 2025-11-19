@@ -1,0 +1,48 @@
+ML Notes :
+
+SEARCH
+Agent : entity perceives the environment and takes action based on environment
+State : a particular configuration of Agent and environment
+Initial State : State at the beginning
+Action : choices that can be made in a state. ACTION set of all actions
+Transition model : state1-->(action1)-->state2. more formally its function RESULT(s,a) where s is current state and a is action
+state set : all possible states
+goal test : test to determine whether current state is goal state
+path cost : cost associated with a particular path followed from initial state to goal state
+node : datastructure containing parent state, current state, action taken in parent state to reach current state, path cost
+Frontier
+explored state
+
+depth first search : uses stack (last in first out)
+breadth first search : 
+h(n) - estimate of number of steps to reach goal
+greedy breadth first search: h(n) 
+A* search : h(n) + g(n)[path cost]
+
+TIC-TAC-TOE
+S0: initial state
+Player(s): which player is turn is its
+ACTIONS(s): function provides all the available LEGAL actions in state 's'
+RESULT(s,a) : returns state after action is taken in current state s
+TERMINAL(s) : final state where there are no legal moves left or one player has won. function checks whether state s is terminal state
+utility(s) : final numerical value for terminal state s
+minimax algorithm
+
+you as player want to implement a function action= maxvalue(s)
+def maxvalue(s)
+	if TERMINAL(s):
+		return UTILITY(s)
+	v=-infinity
+	for action in Actions(s):
+		MAX(v,min-value(RESULT(s,a)))
+	return v
+	
+def min-value(s)
+	if TERMINAL(s):
+		return UTILITY(s)
+	v=+infinity
+	for action in Actions(s):
+		MIN(v,max-value(RESULT(s,a)))
+	return v
+MinMax Algorithm
+AlphaBetaPruning - optimization to MinMax algorithm
